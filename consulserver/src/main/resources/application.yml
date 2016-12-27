@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    consul:
+        host: 192.168.56.11
+        port: 8500
+        discovery:
+          serviceName: consulserver
+          healthCheckPath: /health
+          healthCheckInterval: 15s
+server:
+  port: 8083

@@ -11,6 +11,8 @@
     <modules>
         <module>configserver</module>
         <module>configclient</module>
+        <module>consulserver</module>
+        <module>consulclient</module>
     </modules>
 
 </project>
