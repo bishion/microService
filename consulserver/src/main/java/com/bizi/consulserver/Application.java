@@ -26,9 +26,9 @@ public class Application {
     public String hello(String name){
         return "Hello,"+name;
     }
-    @RequestMapping("/health")
+    @RequestMapping("/ok/health")
     public Health health(){
-        System.err.println("Hello");
+        System.err.println("check health");
         return Health.up().build();
     }
     @RequestMapping("/dataTrans")

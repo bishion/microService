@@ -13,6 +13,9 @@
         <module>configclient</module>
         <module>consulserver</module>
         <module>consulclient</module>
+        <module>eurekaserver</module>
+        <module>eurekaprovider</module>
+        <module>eurekaclient</module>
     </modules>
 
 </project>
