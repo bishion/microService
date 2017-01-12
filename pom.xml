@@ -16,6 +16,7 @@
         <module>eurekaserver</module>
         <module>eurekaprovider</module>
         <module>eurekaclient</module>
+        <module>metrics</module>
     </modules>
 
 </project>
