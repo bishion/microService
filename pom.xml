@@ -17,6 +17,8 @@
         <module>eurekaprovider</module>
         <module>eurekaclient</module>
         <module>metrics</module>
+        <module>ribbon</module>
+        <module>velocity</module>
     </modules>
 
 </project>

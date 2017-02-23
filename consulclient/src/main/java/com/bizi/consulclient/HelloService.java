@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 /**
  * Created by guofangbi on 2016/12/27.
  */
-@FeignClient(value = "10081-zis_fusion_za-ding-16195-1482408135-1",url = "http://10081-zis_fusion_za-ding-16195-1482408135-1:8080")
+@FeignClient("consulserver")
 public interface HelloService {
     @RequestMapping("/sayHello")
     String sayHello(@RequestParam("name") String name);

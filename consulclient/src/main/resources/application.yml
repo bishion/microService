@@ -3,7 +3,7 @@ server:
 spring:
   cloud:
     consul:
-      host: 192.168.56.11
+      host: http://consul.zhonganonline.com
       port: 8500
       discovery:
         register: false

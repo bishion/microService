@@ -1,6 +1,7 @@
 package com.bizi.metrics;
 
 import com.codahale.metrics.MetricRegistry;
+import com.codahale.metrics.MetricSet;
 import com.codahale.metrics.jvm.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -24,8 +25,8 @@ public class Application {
     }
     @RequestMapping("/metrics")
     public Object metrics(){
+        MetricSet metricSet = new MetricRegistry();
         MetricRegistry metricRegistry = new MetricRegistry();
-
         metricRegistry.register("jvm.buffers", new BufferPoolMetricSet(ManagementFactory.getPlatformMBeanServer()));
         metricRegistry.register("jvm.cl", new ClassLoadingGaugeSet());
         metricRegistry.register("jvm.gc", new GarbageCollectorMetricSet());
