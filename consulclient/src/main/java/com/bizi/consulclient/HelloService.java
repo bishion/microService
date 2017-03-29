@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 /**
  * Created by guofangbi on 2016/12/27.
  */
@@ -16,4 +18,6 @@ public interface HelloService {
 
     @RequestMapping(value = "/dataTrans")
     UserDTO dataTrans(@RequestBody UserDTO userDTO);
+    @RequestMapping(value = "/batchDataTrans",method = RequestMethod.POST)
+    UserDTO batchDataTrans(@RequestBody List<UserDTO> userDTO);
 }

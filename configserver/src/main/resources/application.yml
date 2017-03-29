@@ -4,7 +4,9 @@ spring:
   cloud:
     config:
       server:
-        git:
-          uri: https://github.com/bishion/ConfigCenter
+        svn:
+          uri: http://10.253.101.99:8888/repos/zis/microservices/app/config/
+  profiles:
+      active: subversion
   application:
     name: configserver
