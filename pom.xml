@@ -20,6 +20,7 @@
         <module>ribbon</module>
         <module>velocity</module>
         <module>proxy</module>
+        <module>hystrix</module>
     </modules>
 
 </project>

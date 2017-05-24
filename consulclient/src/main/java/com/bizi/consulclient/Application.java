@@ -8,7 +8,9 @@ import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -21,26 +23,30 @@ import java.util.List;
 @EnableDiscoveryClient
 public class Application {
     public static void main(String[] args) {
-        SpringApplication.run(Application.class,args);
+        SpringApplication.run(Application.class, args);
     }
 
     @Autowired
     private HelloService helloService;
+    @Resource
+    private TestListInterface testListInterface;
 
     @RequestMapping("/sayHello")
-    public String hello(String name){
+    public String hello(String name) {
         return helloService.sayHello(name);
     }
+
     @RequestMapping("/dataTrans")
-    public UserDTO dataTrans(){
+    public UserDTO dataTrans() {
         UserDTO userDTO = new UserDTO();
         userDTO.setId(123);
         userDTO.setUsername("guofangbi");
         userDTO.setBirthday(new Date());
         return helloService.dataTrans(userDTO);
     }
+
     @RequestMapping("/batchDataTrans")
-    public UserDTO batchDataTrans(){
+    public UserDTO batchDataTrans() {
         UserDTO userDTO = new UserDTO();
         userDTO.setId(123);
         userDTO.setUsername("guofangbi");
@@ -48,5 +54,16 @@ public class Application {
         List<UserDTO> userDTOList = new ArrayList<UserDTO>(1);
         userDTOList.add(userDTO);
         return helloService.batchDataTrans(userDTOList);
+    }
+
+    @RequestMapping("/testList")
+    public void testList() {
+        List<HaPolicyIndividualProduct> productList = new ArrayList<HaPolicyIndividualProduct>(1);
+        HaPolicyIndividualProduct product = new HaPolicyIndividualProduct();
+        product.setBizNo("CL0400000319000277");
+        product.setBizType("CLM");
+        product.setStatus("TERMINATED");
+        productList.add(product);
+        System.out.println(testListInterface.getTaskStatusByPolicyNos(productList));
     }
 }
