@@ -12,13 +12,16 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @RestController
 public class Application {
-    @Value("${server.name}") String luckyWord;
+    @Value("${server.name}")
+    String luckyWord;
+
     @RequestMapping("/printValue")
-    public String printValue(){
+    public String printValue() {
         return luckyWord;
     }
+
     public static void main(String[] args) {
 //        System.setProperty("DEPLOY_ENV", "dev");
-        SpringApplication.run(Application.class,args);
+        SpringApplication.run(Application.class, args);
     }
 }

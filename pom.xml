@@ -21,6 +21,7 @@
         <module>velocity</module>
         <module>proxy</module>
         <module>hystrix</module>
+        <module>hystrixdashboard</module>
     </modules>
 
 </project>

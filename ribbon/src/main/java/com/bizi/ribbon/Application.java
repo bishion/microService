@@ -21,22 +21,24 @@ import org.springframework.web.client.RestTemplate;
 public class Application {
     @Bean
     @LoadBalanced
-    RestTemplate restTemplate(){
+    RestTemplate restTemplate() {
         return new RestTemplate();
     }
+
     public static void main(String[] args) {
-        SpringApplication.run(Application.class,args);
+        SpringApplication.run(Application.class, args);
     }
+
     @Autowired
     RestTemplate restTemplate;
 
     @RequestMapping("/test")
-    public String test(){
-        return restTemplate.getForEntity("http://eurekaprovider/hello",String.class).getBody();
+    public String test() {
+        return restTemplate.getForEntity("http://eurekaprovider/hello", String.class).getBody();
     }
 
     @RequestMapping("/ribbon")
-    public String ribbon(){
+    public String ribbon() {
         DynamicServerListLoadBalancer lb = (DynamicServerListLoadBalancer) ClientFactory.getNamedLoadBalancer("");
         lb.getServerList(false);
         return null;

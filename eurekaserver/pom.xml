@@ -21,12 +21,12 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-<dependencies>
-    <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-starter-eureka-server</artifactId>
-        <version>1.2.3.RELEASE</version>
-    </dependency>
-</dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka-server</artifactId>
+            <version>1.2.3.RELEASE</version>
+        </dependency>
+    </dependencies>
 
 </project>

@@ -25,17 +25,18 @@ public class Application {
     private DiscoveryClient discoveryClient;
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class,args);
+        SpringApplication.run(Application.class, args);
     }
+
     @RequestMapping("/sayHello")
-    public String sayHello(String username){
-        Map<String,String> map = new HashMap<String, String>();
-        map.put("username","username");
+    public String sayHello(String username) {
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("username", "username");
         List<String> lit = discoveryClient.getServices();
-        List<ServiceInstance> serviceList =  discoveryClient.getInstances("eurekaprovider");
-        if(serviceList.size()>0){
-            String uri = serviceList.get(0).getUri().toString()+"/hello";
-            return (new RestTemplate()).getForObject(uri,String.class,map);
+        List<ServiceInstance> serviceList = discoveryClient.getInstances("eurekaprovider");
+        if (serviceList.size() > 0) {
+            String uri = serviceList.get(0).getUri().toString() + "/hello";
+            return (new RestTemplate()).getForObject(uri, String.class, map);
         }
         return null;
     }

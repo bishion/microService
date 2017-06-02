@@ -18,6 +18,7 @@ public interface HelloService {
 
     @RequestMapping(value = "/dataTrans")
     UserDTO dataTrans(@RequestBody UserDTO userDTO);
-    @RequestMapping(value = "/batchDataTrans",method = RequestMethod.POST)
+
+    @RequestMapping(value = "/batchDataTrans", method = RequestMethod.POST)
     UserDTO batchDataTrans(@RequestBody List<UserDTO> userDTO);
 }

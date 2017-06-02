@@ -17,14 +17,16 @@ import java.lang.management.ManagementFactory;
 @RestController
 public class Application {
     public static void main(String[] args) {
-        SpringApplication.run(Application.class,args);
+        SpringApplication.run(Application.class, args);
     }
+
     @RequestMapping("/test")
-    public String test(){
+    public String test() {
         return "hello world";
     }
+
     @RequestMapping("/metrics")
-    public Object metrics(){
+    public Object metrics() {
         MetricSet metricSet = new MetricRegistry();
         MetricRegistry metricRegistry = new MetricRegistry();
         metricRegistry.register("jvm.buffers", new BufferPoolMetricSet(ManagementFactory.getPlatformMBeanServer()));

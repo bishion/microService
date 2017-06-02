@@ -15,15 +15,17 @@ import org.springframework.web.bind.annotation.RestController;
 @Controller
 public class VelocityApplication {
     public static void main(String[] args) {
-        SpringApplication.run(VelocityApplication.class,args);
+        SpringApplication.run(VelocityApplication.class, args);
     }
+
     @RequestMapping("/test")
     @ResponseBody
-    public String test(){
+    public String test() {
         return "SUCCESS";
     }
+
     @RequestMapping("/")
-    public String index(){
+    public String index() {
         return "index";
     }
 }

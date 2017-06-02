@@ -19,23 +19,27 @@ import java.util.List;
 public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class,args);
+        SpringApplication.run(Application.class, args);
     }
+
     @RequestMapping("/sayHello")
-    public String hello(String name){
-        return "Hello,"+name;
+    public String hello(String name) {
+        return "Hello," + name;
     }
+
     @RequestMapping("/ok/health")
-    public Health health(){
+    public Health health() {
         System.err.println("check health");
         return Health.up().build();
     }
+
     @RequestMapping("/dataTrans")
-    public UserDTO dataTrans(@RequestBody UserDTO userDTO){
+    public UserDTO dataTrans(@RequestBody UserDTO userDTO) {
         return userDTO;
     }
-    @RequestMapping(value = "/batchDataTrans",method = RequestMethod.POST)
-    public UserDTO batchDataTrans(@RequestBody List<UserDTO> userDTOS){
+
+    @RequestMapping(value = "/batchDataTrans", method = RequestMethod.POST)
+    public UserDTO batchDataTrans(@RequestBody List<UserDTO> userDTOS) {
         return userDTOS.get(0);
     }
 }

@@ -9,18 +9,18 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>consulserver</artifactId>
-<dependencies>
-    <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-starter-consul-discovery</artifactId>
-        <version>1.1.2.RELEASE</version>
-    </dependency>
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-actuator</artifactId>
-        <version>1.4.3.RELEASE</version>
-    </dependency>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-consul-discovery</artifactId>
+            <version>1.1.2.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-actuator</artifactId>
+            <version>1.4.3.RELEASE</version>
+        </dependency>
 
-</dependencies>
+    </dependencies>
 
 </project>
