@@ -8,9 +8,7 @@ import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -28,8 +26,6 @@ public class Application {
 
     @Autowired
     private HelloService helloService;
-    @Resource
-    private TestListInterface testListInterface;
 
     @RequestMapping("/sayHello")
     public String hello(String name) {
@@ -54,16 +50,5 @@ public class Application {
         List<UserDTO> userDTOList = new ArrayList<UserDTO>(1);
         userDTOList.add(userDTO);
         return helloService.batchDataTrans(userDTOList);
-    }
-
-    @RequestMapping("/testList")
-    public void testList() {
-        List<HaPolicyIndividualProduct> productList = new ArrayList<HaPolicyIndividualProduct>(1);
-        HaPolicyIndividualProduct product = new HaPolicyIndividualProduct();
-        product.setBizNo("CL0400000319000277");
-        product.setBizType("CLM");
-        product.setStatus("TERMINATED");
-        productList.add(product);
-        System.out.println(testListInterface.getTaskStatusByPolicyNos(productList));
     }
 }

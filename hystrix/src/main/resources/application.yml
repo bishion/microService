@@ -1,2 +1,9 @@
 server:
   port: 8091
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8085/eureka/
+spring:
+  application:
+    name: hystrix
