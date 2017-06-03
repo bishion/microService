@@ -1,13 +1,12 @@
 server:
   port: 8092
 eureka:
+  instance:
+    metadata-map:
+      cluster: MAIN
   client:
     serviceUrl:
       defaultZone: http://localhost:8085/eureka/
 spring:
   application:
     name: hystrix
-eureka:
-  instance:
-    metadata-map:
-      cluster: MAIN
