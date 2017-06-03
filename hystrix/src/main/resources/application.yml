@@ -1,5 +1,5 @@
 server:
-  port: 8091
+  port: 8092
 eureka:
   client:
     serviceUrl:
@@ -7,3 +7,7 @@ eureka:
 spring:
   application:
     name: hystrix
+eureka:
+  instance:
+    metadata-map:
+      cluster: MAIN

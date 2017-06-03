@@ -4,3 +4,6 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8085/eureka/
+turbine:
+  aggregator:
+    clusterConfig: MAIN
