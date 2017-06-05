@@ -5,5 +5,7 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8085/eureka/
 turbine:
+  appConfig: hystrix
   aggregator:
     clusterConfig: MAIN
+  clusterNameExpression: metadata['cluster']
