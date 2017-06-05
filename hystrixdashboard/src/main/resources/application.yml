@@ -9,3 +9,4 @@ turbine:
   aggregator:
     clusterConfig: MAIN
   clusterNameExpression: metadata['cluster']
+#turbine的配置缺一不可,缺少后就会出现界面一直loading,无法捕获请求的状态
