@@ -1,5 +1,6 @@
 package com.bizi.hystrix;
 
+import com.bizi.hystrix.service.RandomUtil;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.boot.SpringApplication;
@@ -9,7 +10,7 @@ import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Random;
+
 
 /**
  * Created by guofangbi on 2017/6/1.
@@ -26,23 +27,20 @@ public class HystrixApplication {
     @RequestMapping("/testFallback.json")
     @HystrixCommand(fallbackMethod = "fallback")
     public String testFallback() {
-        if (randomFlag()) {
+        if (RandomUtil.randomFlag()) {
             return "not fallback";
         } else {
             throw new RuntimeException();
         }
     }
 
-    private boolean randomFlag() {
-        return new Random().nextInt(2) == 0;
-    }
 
     @RequestMapping("/testTimeOut.json")
     @HystrixCommand(fallbackMethod = "fallback", commandProperties = {
             @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "5000")})
     public String testTimeOut() {
         try {
-            if (randomFlag()) {
+            if (RandomUtil.randomFlag()) {
 
                 Thread.sleep(4000l);
             } else {
