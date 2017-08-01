@@ -1,5 +1,5 @@
 server:
-  port: 8092
+  port: 8091
 eureka:
   instance:
     metadata-map:

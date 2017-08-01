@@ -6,10 +6,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,6 +22,7 @@ import java.util.Map;
 @SpringBootApplication
 @EnableEurekaClient
 @RestController
+@EnableFeignClients
 public class Application {
     @Autowired
     private DiscoveryClient discoveryClient;
@@ -39,5 +42,15 @@ public class Application {
             return (new RestTemplate()).getForObject(uri, String.class, map);
         }
         return null;
+    }
+    @Autowired
+    private DemoService demoService;
+    @RequestMapping("/getResult")
+    public String getResult(){
+        UserDTO userDTO = new UserDTO();
+        userDTO.setUsername("username");
+        StudentDTO studentDTO = new StudentDTO();
+        studentDTO.setStudentNo("studentNo");
+        return demoService.getResult(userDTO,studentDTO);
     }
 }

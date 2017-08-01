@@ -33,4 +33,8 @@ public class Application {
     public String hello(String username) {
         return "Hello," + username;
     }
+    @RequestMapping("/params")
+    public String getRepFromParams(UserDTO userDTO,StudentDTO studentDTO){
+        return userDTO.getUsername()+" "+studentDTO.getStudentNo();
+    }
 }
