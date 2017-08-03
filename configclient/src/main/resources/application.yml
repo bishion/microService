@@ -6,3 +6,13 @@ config:
     port: 3306
     username: root
     password: root
+management:
+  health:
+    defaults:
+      enabled: false
+    security:
+      enabled: false
+health.config.enabled: false
+endpoints:
+  health:
+    sensitive: false

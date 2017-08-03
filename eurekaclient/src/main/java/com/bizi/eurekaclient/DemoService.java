@@ -11,5 +11,5 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @FeignClient("eurekaprovider")
 public interface DemoService {
     @RequestMapping(value = "/params",method = RequestMethod.POST)
-    String getResult(@Param("userDTO") UserDTO userDTO/*, @Param("userDTO") StudentDTO studentDTO*/);
+    String getResult(@Param("userDTO") UserDTO userDTO, @Param("userDTO") StudentDTO studentDTO);
 }
