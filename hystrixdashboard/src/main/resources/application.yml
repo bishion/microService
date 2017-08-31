@@ -1,3 +1,6 @@
+spring:
+  application:
+    name: turbinedashboard
 server:
   port: 8090
 eureka:
@@ -7,6 +10,6 @@ eureka:
 turbine:
   appConfig: hystrix
   aggregator:
-    clusterConfig: MAIN
-  clusterNameExpression: metadata['cluster']
+    clusterConfig: default
+  clusterNameExpression: new String("default")
 #turbine的配置缺一不可,缺少后就会出现界面一直loading,无法捕获请求的状态
