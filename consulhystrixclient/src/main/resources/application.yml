@@ -1,0 +1,17 @@
+server:
+  port: 8010
+spring.application.name: turbine
+applications: consulhystrixclient
+turbine:
+  aggregator:
+    clusterConfig: ${applications}
+  appConfig: ${applications}
+spring:
+  cloud:
+    consul:
+        host: 192.168.56.11
+        port: 8500
+        discovery:
+          serviceName: consulhystrixclient
+          healthCheckPath: /health
+          healthCheckInterval: 15s

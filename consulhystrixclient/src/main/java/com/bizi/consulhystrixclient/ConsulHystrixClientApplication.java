@@ -1,33 +1,31 @@
-package com.bizi.hystrix;
+package com.bizi.consulhystrixclient;
 
-import com.bizi.hystrix.service.RandomUtil;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
+import org.springframework.cloud.netflix.turbine.EnableTurbine;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Random;
 
-
-/**
- * Created by guofangbi on 2017/6/1.
- */
 @SpringBootApplication
-@EnableHystrix
 @RestController
-@EnableEurekaClient
-public class HystrixApplication {
+@EnableDiscoveryClient
+@EnableTurbine
+@EnableHystrix
+public class ConsulHystrixClientApplication {
     public static void main(String[] args) {
-        SpringApplication.run(HystrixApplication.class, args);
+        SpringApplication.run(ConsulHystrixClientApplication.class, args);
     }
 
     @RequestMapping("/testFallback.json")
     @HystrixCommand(fallbackMethod = "fallback")
     public String testFallback() {
-        if (RandomUtil.randomFlag()) {
+        if (randomFlag()) {
             return "not fallback";
         } else {
             throw new RuntimeException();
@@ -40,7 +38,7 @@ public class HystrixApplication {
             @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "5000")})
     public String testTimeOut() {
         try {
-            if (RandomUtil.randomFlag()) {
+            if (randomFlag()) {
 
                 Thread.sleep(4000l);
             } else {
@@ -54,5 +52,8 @@ public class HystrixApplication {
 
     public String fallback() {
         return "fallback";
+    }
+    private static boolean randomFlag() {
+        return new Random().nextInt(2) == 0;
     }
 }
