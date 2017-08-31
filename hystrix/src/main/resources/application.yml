@@ -3,7 +3,7 @@ server:
 eureka:
   instance:
     metadata-map:
-      cluster: MAIN
+      cluster: HYSTRIX
   client:
     serviceUrl:
       defaultZone: http://localhost:8085/eureka/

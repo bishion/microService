@@ -10,6 +10,6 @@ eureka:
 turbine:
   appConfig: hystrix
   aggregator:
-    clusterConfig: default
-  clusterNameExpression: new String("default")
-#turbine的配置缺一不可,缺少后就会出现界面一直loading,无法捕获请求的状态
+    clusterConfig: HYSTRIX
+  clusterNameExpression: metadata['cluster']
+## clusterConfig要大写
