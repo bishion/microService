@@ -22,6 +22,8 @@
         <module>proxy</module>
         <module>hystrix</module>
         <module>hystrixdashboard</module>
+        <module>demo</module>
+        <module>myConsulTool</module>
     </modules>
 
     <dependencyManagement>
