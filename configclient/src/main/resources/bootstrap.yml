@@ -2,4 +2,7 @@ spring:
   cloud:
     config:
       uri: http://localhost:8081
-      name: configclient
+      name: configclient #拉配置时的名称
+server:
+  application:
+    name: configclient #项目默认名称

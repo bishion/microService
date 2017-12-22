@@ -19,9 +19,9 @@ import java.util.List;
 @SpringBootApplication
 @EnableFeignClients
 @EnableDiscoveryClient
-public class Application {
+public class ConsulClientApplication {
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(ConsulClientApplication.class, args);
     }
 
     @Autowired

@@ -8,6 +8,11 @@
     <artifactId>microservice</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0</version>
+    <parent>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-parent</artifactId>
+        <version>Dalston.SR4</version>
+    </parent>
     <modules>
         <module>configserver</module>
         <module>configclient</module>
@@ -19,7 +24,6 @@
         <module>metrics</module>
         <module>ribbon</module>
         <module>velocity</module>
-        <module>proxy</module>
         <module>hystrix</module>
         <module>hystrixdashboard</module>
         <module>demo</module>
