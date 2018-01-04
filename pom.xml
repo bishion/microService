@@ -28,15 +28,8 @@
         <module>hystrixdashboard</module>
         <module>demo</module>
         <module>myConsulTool</module>
+        <module>sleuthzipkin</module>
+        <module>sleuthprovider</module>
+        <module>sleuthconsumer</module>
     </modules>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-config-server</artifactId>
-                <version>1.3.2.RELEASE</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 </project>
