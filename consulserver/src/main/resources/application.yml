@@ -7,7 +7,7 @@ spring:
           serviceName: consulserver
           healthCheckPath: /health
           healthCheckInterval: 15s
-          tags: bizi,test
+          tags: 1000
 server:
-  port: 8083
+  port: 8089
 management.health.consul.enabled: false
