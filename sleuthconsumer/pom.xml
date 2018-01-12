@@ -11,7 +11,6 @@
 
     <artifactId>sleuth-consumer</artifactId>
 
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -29,5 +28,6 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-sleuth-zipkin</artifactId>
         </dependency>
+
     </dependencies>
 </project>

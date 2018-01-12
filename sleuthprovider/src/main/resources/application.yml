@@ -7,6 +7,7 @@ spring:
     consul:
       host: 192.168.56.11
       port: 8500
+      prefer-ip-address: true
       serviceName: sleuthprovider
   zipkin:
     base-url: http://localhost:9411
