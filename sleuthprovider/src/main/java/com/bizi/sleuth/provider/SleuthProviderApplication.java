@@ -27,7 +27,16 @@ public class SleuthProviderApplication {
     }
     @RequestMapping("/sayHi")
     public String sayHi(HttpServletRequest httpServletRequest){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                providerService.sayHello();
+            }
+        }).start();
         return providerService.sayHello();
+    } @RequestMapping("/sayHello")
+    public String sayHello(){
+        return new Status().toString();
     }
     class Status{
         private String status="UP";

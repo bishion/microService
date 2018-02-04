@@ -9,23 +9,32 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.concurrent.Executor;
 
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
 @RestController
 public class SleuthConsumerApplication {
+
     @Resource
     private ProviderService providerService;
 
+    @Resource
+    private Executor executor;
     @RequestMapping("/sayHi")
     public String sayHi(){
-        return providerService.sayHi();
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                providerService.sayHi();
+            }
+        });
+        return "S" +
+                "" +
+                "UCCESS";
     }
-    @RequestMapping("/sayHello")
-    public String sayHello(){
-        return "Hello";
-    }
+
     @RequestMapping("/health")
     public Status health(HttpServletRequest httpServletRequest){
         return new Status();
@@ -38,6 +47,8 @@ public class SleuthConsumerApplication {
         }
     }
     public static void main(String[] args) {
+
         SpringApplication.run(SleuthConsumerApplication.class,args);
     }
+
 }

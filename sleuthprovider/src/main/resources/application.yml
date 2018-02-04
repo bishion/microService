@@ -14,4 +14,3 @@ spring:
   sleuth:
     sampler:
       percentage: 1
-logging.level.org.springframework.web.servlet.DispatcherServlet: DEBUG
